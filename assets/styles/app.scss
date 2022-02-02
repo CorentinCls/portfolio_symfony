@@ -36,7 +36,10 @@ body {
 
 .nav-container {
     @include display-flex-column();
-    @include style-link();
+
+        a {
+            @include style-link();
+        }
         li {
             @include style-list();
         }
@@ -44,5 +47,8 @@ body {
 
 .footer-container {
     @include display-flex-row();
-    @include style-link();
+
+    a {
+        @include style-link();
+    }
 }
