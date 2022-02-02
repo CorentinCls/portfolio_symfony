@@ -21,11 +21,11 @@ class UserFixtures extends Fixture
     {
         // Création d’un utilisateur de type “administrateur”
         $admin = new User();
-        $admin->setUsername('admin@monsite.com');
+        $admin->setUsername('CorentinCls');
         $admin->setRoles(['ROLE_ADMIN']);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $admin,
-            'adminpassword'
+            'hello'
         );
         $admin->setPassword($hashedPassword);
         $manager->persist($admin);
