@@ -1,0 +1,28 @@
+// All in the website
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(197, 102, 102);
+}
+
+//Reusable class
+
+.display-flex-column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.style-link {
+    text-decoration: none;
+}
+
+.style-list {
+    list-style-type: none;
+}
