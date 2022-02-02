@@ -28,7 +28,8 @@ security:
                 enable_csrf: true
                 default_target_path: home
                 use_referer: true
-
+            logout:
+                path: app_logout
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
