@@ -18,12 +18,14 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
 }
 
 @mixin display-flex-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 @mixin style-link {
@@ -35,17 +37,32 @@ body {
 }
 
 .nav-container {
+    height: 20vh;
     @include display-flex-column();
 
         a {
             @include style-link();
         }
+
         li {
             @include style-list();
         }
 }
 
+.section1 {
+    height: 80vh;
+}
+
+.section2, .section3, .section4 {
+    height: 100vh;
+}
+
+.section5 {
+    height: 70vh;
+}
+
 .footer-container {
+    height: 10vh;
     @include display-flex-row();
 
     a {
