@@ -20,6 +20,12 @@ body {
     text-align: center;
 }
 
+@mixin display-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 @mixin style-link {
     text-decoration: none;
 }
@@ -30,8 +36,19 @@ body {
 
 .nav-container {
     @include display-flex-column();
-    @include style-link();
+
+        a {
+            @include style-link();
+        }
         li {
             @include style-list();
         }
+}
+
+.footer-container {
+    @include display-flex-row();
+
+    a {
+        @include style-link();
+    }
 }
