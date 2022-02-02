@@ -9,10 +9,9 @@ use Doctrine\Persistence\ObjectManager;
 
 class ProjectFixtures extends Fixture implements DependentFixtureInterface
 {
-    private const PROJECTS = [
+    public const PROJECTS = [
         [
             "name" => "Incit easy",
-            "date" => "02/03/2000",
             "link" => "https://github.com/CorentinCls/portfolio_symfony",
             "image" => "https://picsum.photos/200/300",
             "description" => "notre projet client"
@@ -20,7 +19,6 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
         [
             "name" => "Reims quizz",
-            "date" => "02/03/2010",
             "link" => "https://github.com/CorentinCls/portfolio_symfony",
             "image" => "https://picsum.photos/200/300",
             "description" => "notre projet sur reims"
@@ -28,7 +26,6 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
         [
             "name" => "Mano mano",
-            "date" => "02/03/2016",
             "link" => "https://github.com/CorentinCls/portfolio_symfony",
             "image" => "https://picsum.photos/200/300",
             "description" => "minou minou"
@@ -38,15 +35,18 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach(self::PROJECTS as $data)
+        foreach(self::PROJECTS as $key => $data)
         {
             $project = new Project();
 
             $project->setName($data['name']);
-            $project->setDate($data['date']);
+            $project->setDate((new \DateTime()));
             $project->setLink($data['link']);
             $project->setImage($data['image']);
             $project->setDescription($data['description']);
+
+            
+            $project->addSkill($this->getReference('Skill_' . 'PHP'));
 
             $manager->persist($project);
         }
@@ -58,7 +58,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            SkillFixtures::class,
+            SkillFixtures::class
         ];
     }
 }

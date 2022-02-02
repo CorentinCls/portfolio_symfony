@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class SkillFixtures extends Fixture
 {
-    private const SKILLS = [
+    public const SKILLS = [
         [
             "name" => "PHP",
             "level" => "70",
@@ -36,10 +36,10 @@ class SkillFixtures extends Fixture
             $skill->setName($data['name']);
             $skill->setLevel($data['level']);
             $skill->setImage($data['image']);
+            $manager->persist($skill);
 
             $this->addReference('Skill_' . $data['name'], $skill);
 
-            $manager->persist($skill);
          }
         
         $manager->flush();
