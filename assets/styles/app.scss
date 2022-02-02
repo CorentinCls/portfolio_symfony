@@ -13,16 +13,24 @@ body {
 
 //Reusable class
 
-.display-flex-column {
+@mixin display-flex-column {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.style-link {
+@mixin style-link {
     text-decoration: none;
 }
 
-.style-list {
+@mixin style-list {
     list-style-type: none;
+}
+
+.nav-container {
+    @include display-flex-column();
+    @include style-link();
+        li {
+            @include style-list();
+        }
 }
