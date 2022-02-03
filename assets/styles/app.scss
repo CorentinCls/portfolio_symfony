@@ -18,11 +18,11 @@ body {
 
 //Reusable class
 
-@mixin display-flex-column {
+@mixin display-flex-column($justifyContent: center, $alignItems: center) {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    justify-content: center;
+    text-align: $alignItems;
+    justify-content: $justifyContent;
 }
 
 @mixin display-flex-row($justifyContent: center, $alignItems: center) {
@@ -43,6 +43,9 @@ body {
 @mixin margin {
     margin: 1rem;
 }
+@mixin margin-top($value: 1rem) {
+    margin-top: $value;
+}
 
 @mixin padding {
     padding: 1rem;
@@ -50,6 +53,10 @@ body {
 
 @mixin border{
     border: 1px solid black;
+}
+
+@mixin h1-font-size {
+    font-size: $h1-font-size;
 }
 
 header {
@@ -94,17 +101,34 @@ header {
 }
 
 .section1 {
+    font-family: 'Domine', serif;
     height: 100vh;
-    @include display-flex-column();
+    @include display-flex-column($justifyContent: start);
     background-image: url('../images/moi.jpg');
     background-size: 75%;
     background-repeat: no-repeat;
     background-position: center;
 
-    .text-container {
-        @include border();
-        width: 50%;
-        background-color: rgba(0, 0, 0, 0.35);
+    h1 {
+        @include h1-font-size();
+        @include margin-top();
+    }
+
+    p {
+        @include margin();
+    }
+
+    .citation {
+        position: relative;
+        top: 60vh;
+
+        q {
+            font-style: italic;
+        }
+
+        p {
+            font-weight: 700;
+        }
     }
 }
 
@@ -113,19 +137,24 @@ header {
     @include display-flex-column();
 }
 
-.about-container {
-    @include display-flex-column();
-
-    div {
-        @include border();
-        @include padding();
-        @include margin();
-        p {
+.section2 {
+    background-color: rgb(121, 121, 121);
+    color: white;
+    .about-container {
+        @include display-flex-column();
+    
+        div {
+            @include border();
             @include padding();
+            @include margin();
+            p {
+                @include padding();
+            }
         }
+            
     }
-        
 }
+
 .section3 {
     
     .shadow-drop-2-center {
@@ -196,6 +225,7 @@ header {
 }
 
 .skill-container {
+    background-color:grey;
     @include display-flex-column();
     display: block;
 
