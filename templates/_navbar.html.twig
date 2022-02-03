@@ -1,9 +1,26 @@
 <nav class="nav-container">
-    <h1>Corentin Châlons</h1>
-    <ul>
-        <li> <a href="#s2">About me</a> </li>
-        <li> <a href="#s3">Projects</a> </li>
-        <li> <a href="#s4">Skills</a> </li>
+    <a href="#home" class="active">Mon Portfolio</a>
+    <ul id="myLinks">
+        <li> <a href="#s2">A propos de moi</a> </li>
+        <li> <a href="#s3">Projets</a> </li>
+        <li> <a href="#s4">Compétences</a> </li>
         <li> <a href="#s5">Contact</a> </li>
     </ul>
+
+    <a class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+
+    {% block javascripts %}
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+                }
+        </script>
+    {% endblock %}
 </nav>

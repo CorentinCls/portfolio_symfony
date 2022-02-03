@@ -5,6 +5,10 @@
 {% block body %}
 
     <section class="section1">
+        <div class="text-container">
+            <h1>Corentin Châlons</h1>
+            <p>Développeur web et web mobile</p>
+        </div>
     </section>
 
     <section id="s2" class="section2">
@@ -41,6 +45,8 @@
                     <p><a href="{{ path("project_new") }}">Create</a></p>
             {% endif %}
         </div>
+
+        <div><img class="shadow-drop-2-center" src="{{ asset('build/images/finger.png') }}" alt=""></div>
         
     </section>
 
@@ -66,35 +72,35 @@
     </section>
 
     <section id="s5" class="section5">
-        <h2>Contactez-moi</h2>
+        <h2>Vous souhaitez me contacter ?</h2>
 
         <form action="https://formspree.io/f/mgedaloz" method="POST">
-            <label>Your email:
+            <label>Votre adresse mail:
             </label>
-            <input type="email" name="_replyto">
+            <input type="email" name="_replyto" required>
 
 
             <label>
-                Your message:
+                Votre message :
             </label>
 
-            <textarea name="message"></textarea>
+            <textarea name="message" required></textarea>
 
-            <button type="submit">Send</button>
+            <button type="submit">Envoyer</button>
         </form>
 
         <div class="logo-container">
 
             <div class="github-logo">
-                <img src="{{ asset('build/images/linkedin.png') }}" alt="Github logo">
+                <a href="https://github.com/CorentinCls"> <img src="{{ asset('build/images/git_icon.png') }}" alt="Github logo">  </a>
             </div>
 
             <div class="linkedin-logo">
-                <img src="../../assets/images/linkedin_icon.png" alt="Linkedin logo">
+                <a href="https://www.linkedin.com/in/corentin-ch%C3%A2lons/"><img src="{{ asset('build/images/linkedin_icon.png') }}" alt="Linkedin logo"></a>
             </div>
 
             <div class="reddit-logo">
-                <img src="../../assets/images/reddit_icon.png" alt="Reddit logo">
+                <a href="https://www.reddit.com/user/Strict_Breakfast3906"> <img src="{{ asset('build/images/reddit_icon.png') }}" alt="Reddit logo"> </a>
             </div>
 
         </div>

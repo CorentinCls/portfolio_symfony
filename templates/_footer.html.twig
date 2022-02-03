@@ -1,9 +1,8 @@
 <div class="footer-container">
-    <p>Copyright</p>
-    <p>Thanks</p>
+    <div><img src="{{ asset('build/images/copyright.png') }}" alt="Copyright"></div>
     {% if app.user %}
-        <a href="{{ path('app_logout') }}">logout</a>
+        <a href="{{ path('app_logout') }}">Corentin Chalons</a>
     {% else %}
-        <a href="{{ path('login') }}">login</a>
+        <a href="{{ path('login') }}">Corentin Chalons</a>
     {% endif %}
 </div>
