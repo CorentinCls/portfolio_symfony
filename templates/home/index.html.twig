@@ -13,6 +13,17 @@
 
     <section class="section3">
         <p>Section 3</p>
+
+        {% for project in projects %}
+            <p>{{project.name}}</p>
+            {% if app.user %}
+                <a href="{{ path("project_edit", {id: project.id}) }}">edit</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if app.user %}
+                <a href="{{ path("project_new") }}">Create</a>
+        {% endif %}
     </section>
 
     <section class="section4">
