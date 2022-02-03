@@ -59,6 +59,10 @@ body {
     font-size: $h1-font-size;
 }
 
+@mixin p-font-size {
+    font-size: $p-font-size;
+}
+
 header {
     background-color: rgba(0, 0, 0, 0.35);
 }
@@ -83,7 +87,7 @@ header {
           }
 
           a.icon {
-            background: rgb(107, 107, 107);
+            background: rgb(173, 173, 173);
             display: block;
             position: absolute;
             right: 0;
@@ -138,17 +142,24 @@ header {
 }
 
 .section2 {
-    background-color: rgb(121, 121, 121);
-    color: white;
+    color: rgb(0, 0, 0);
     .about-container {
+        background-color: rgb(65, 65, 65, 0.6);
         @include display-flex-column();
-    
+        
+        h2 {
+            color: white;
+            @include margin-top();
+        }
+
         div {
+        background-color: rgb(255, 255, 255);
             @include border();
             @include padding();
             @include margin();
             p {
                 @include padding();
+                @include p-font-size();
             }
         }
             
@@ -202,38 +213,54 @@ header {
                 box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
         }
     }
+}
+
   
+.section3 {
 
-    .wrapper {
-        @include display-flex-row(initial);
-        overflow: auto;
-        @include padding();
-    
-        .project-container {
-            @include display-flex-column();
-            @include margin();
-            max-width: 350px;
-            flex-shrink: 0;
-    
-            img {
-                width: auto;
-                max-height: 50vh;
-            }
+        p {
+            @include margin-top();
         }
-}
 
+        .wrapper {
+            @include display-flex-row(initial);
+            overflow: auto;
+            height: auto;
+            @include padding();
+        
+            .project-container {
+                @include border();
+                @include display-flex-column();
+                @include margin();
+                width: 90%;
+                max-width: 90%;
+                height: 60vh;
+                flex-shrink: 0;
+        
+                    img {
+                        width: auto;
+                        max-height: 40vh;
+                    }
+            }
+    }
 }
+   
+
 
 .skill-container {
-    background-color:grey;
+    background-color: rgb(65, 65, 65, 0.6);
     @include display-flex-column();
     display: block;
+    color: white;
+    text-transform: uppercase;
 
     div {
+        color: black;
         @include margin();
         @include padding();
         @include border();
         @include display-flex-row($justifyContent: space-around, $alignItems: center);
+        background-color: rgb(255, 255, 255);
         min-height: 10vh;
         max-height: 10vh;
     }
@@ -242,6 +269,10 @@ header {
 .section5 {
     height: 90vh;
     @include display-flex-column();
+
+    h2 {
+        @include margin-top();
+    }
 
     form {
         @include display-flex-column();
@@ -272,16 +303,20 @@ header {
     }
 
     img {
-        width: 100px;
+        border-radius: 50%;
+        width: 120px;
         @include padding();
     }
 }
 
 .footer-container {
     height: 10vh;
+    background-color: rgb(65, 65, 65);
     @include display-flex-column();
 
         a {
+            color: white;
+            @include p-font-size();
             @include style-link();
         }
 }
