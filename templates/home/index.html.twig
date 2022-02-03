@@ -67,5 +67,36 @@
 
     <section id="s5" class="section5">
         <h2>Contactez-moi</h2>
+
+        <form action="https://formspree.io/f/mgedaloz" method="POST">
+            <label>Your email:
+            </label>
+            <input type="email" name="_replyto">
+
+
+            <label>
+                Your message:
+            </label>
+
+            <textarea name="message"></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+
+        <div class="logo-container">
+
+            <div class="github-logo">
+                <img src="{{ asset('build/images/linkedin.png') }}" alt="Github logo">
+            </div>
+
+            <div class="linkedin-logo">
+                <img src="../../assets/images/linkedin_icon.png" alt="Linkedin logo">
+            </div>
+
+            <div class="reddit-logo">
+                <img src="../../assets/images/reddit_icon.png" alt="Reddit logo">
+            </div>
+
+        </div>
     </section>
 {% endblock %}

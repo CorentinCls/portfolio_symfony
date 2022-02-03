@@ -128,6 +128,19 @@ header {
 
 .section5 {
     height: 90vh;
+
+    form {
+        @include display-flex-column();
+        margin: auto;
+        width: 50%;
+
+        input {
+            padding: 0.5rem;
+            font-size: 1rem;;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    }
 }
 
 .footer-container {
