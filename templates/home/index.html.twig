@@ -3,6 +3,10 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
+
+    <section class="section1">
+    </section>
+
     <section id="s2" class="section2">
         <div class="about-container">
         <h2>Qui suis-je ?</h2>
@@ -17,28 +21,31 @@
     </section>
 
     <section id="s3" class="section3">
-        <p>Section 3</p>
+        <h2>Mes projets</h2>
 
-        {% for project in projects %}
-            <div class="project-container">
-                <p>{{project.name}}</p>
-                <time>{{project.date|date("m/d/Y")}}</time>
-                <div><img src="{{project.image}}" alt="{{project.name}}"></div>
-                <p>{{project.description}}</p>
-                <div><a href="{{project.link}}">Github</a></div>
+        <div class="wrapper">
+            {% for project in projects %}
+                <div class="project-container">
+                    <p>{{project.name}}</p>
+                    <time>{{project.date|date("m/d/Y")}}</time>
+                    <img src="{{project.image}}" alt="{{project.name}}">
+                    <p>{{project.description}}</p>
+                    <a href="{{project.link}}">Github</a>
+                    {% if app.user %}
+                        <a href="{{ path("project_edit", {id: project.id}) }}">edit</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
             {% if app.user %}
-                <a href="{{ path("project_edit", {id: project.id}) }}">edit</a>
+                    <p><a href="{{ path("project_new") }}">Create</a></p>
             {% endif %}
-            </div>
-        {% endfor %}
-
-        {% if app.user %}
-                <p><a href="{{ path("project_new") }}">Create</a></p>
-        {% endif %}
+        </div>
+        
     </section>
 
     <section id="s4" class="section4">
-        <p>Section 4</p>
+        <h2>Mes skills</h2>
         {% for skill in skills %}
             <div class="skill-container">
                 
@@ -59,6 +66,6 @@
     </section>
 
     <section id="s5" class="section5">
-        <p>Section 5</p>
+        <h2>Contactez-moi</h2>
     </section>
 {% endblock %}
