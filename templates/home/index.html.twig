@@ -28,6 +28,16 @@
 
     <section class="section4">
         <p>Section 4</p>
+        {% for skill in skills %}
+            <p>{{skill.name}}</p>
+            {% if app.user %}
+                <a href="{{ path("skill_edit", {id: skill.id}) }}">edit</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if app.user %}
+                <a href="{{ path("skill_new") }}">Create</a>
+        {% endif %}
     </section>
 
     <section class="section5">
