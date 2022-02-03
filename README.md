@@ -2,7 +2,7 @@ Welcome on my portfolio !
 
 For the last checkpoint at wild code shool, my mission is to make a portfolio.
 
-However for this project, I have to use a maximum of the techniques and languages used.
+However for this project, I have to use a maximum of the techniques and languages learn for the last 5 months.
 
 Technologies used : 
 -Symfony 6.0
