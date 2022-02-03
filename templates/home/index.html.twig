@@ -3,7 +3,7 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-    <section class="section2">
+    <section id="s2" class="section2">
         <div class="about-container">
         <h2>Qui suis-je ?</h2>
             <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis veniam dicta alias sunt sed officiis expedita, soluta qui mollitia architecto, iure praesentium nostrum magni tempore! Laudantium hic iure voluptatem et!
@@ -16,7 +16,7 @@
         
     </section>
 
-    <section class="section3">
+    <section id="s3" class="section3">
         <p>Section 3</p>
 
         {% for project in projects %}
@@ -37,7 +37,7 @@
         {% endif %}
     </section>
 
-    <section class="section4">
+    <section id="s4" class="section4">
         <p>Section 4</p>
         {% for skill in skills %}
             <div class="skill-container">
@@ -58,7 +58,7 @@
         {% endif %}
     </section>
 
-    <section class="section5">
+    <section id="s5" class="section5">
         <p>Section 5</p>
     </section>
 {% endblock %}
