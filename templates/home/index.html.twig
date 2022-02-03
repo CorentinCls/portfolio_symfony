@@ -3,40 +3,58 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-    <section class="section1">
-        <p>Section 1</p>
-    </section>
-
     <section class="section2">
-        <p>Section 2</p>
+        <div class="about-container">
+        <h2>Qui suis-je ?</h2>
+            <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis veniam dicta alias sunt sed officiis expedita, soluta qui mollitia architecto, iure praesentium nostrum magni tempore! Laudantium hic iure voluptatem et!
+                Perferendis totam qui enim minima dolores molestiae explicabo ducimus sequi, odit molestias eaque eveniet repudiandae voluptate. Minus cupiditate voluptatem rem possimus natus id sequi. Delectus officia nobis dolor a qui.
+                Accusantium molestiae recusandae dolor ducimus quibusdam. Amet facilis nisi atque neque dolores facere nostrum reprehenderit beatae asperiores soluta doloribus ipsa, adipisci, cupiditate veritatis repellat. Cupiditate aliquam distinctio laboriosam asperiores aliquid.</p></div>
+                <div> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis veniam dicta alias sunt sed officiis expedita, soluta qui mollitia architecto, iure praesentium nostrum magni tempore! Laudantium hic iure voluptatem et!
+                    Perferendis totam qui enim minima dolores molestiae explicabo ducimus sequi, odit molestias eaque eveniet repudiandae voluptate. Minus cupiditate voluptatem rem possimus natus id sequi. Delectus officia nobis dolor a qui.
+                    Accusantium molestiae recusandae dolor ducimus quibusdam. Amet facilis nisi atque neque dolores facere nostrum reprehenderit beatae asperiores soluta doloribus ipsa, adipisci, cupiditate veritatis repellat. Cupiditate aliquam distinctio laboriosam asperiores aliquid.</p></div>
+        </div>
+        
     </section>
 
     <section class="section3">
         <p>Section 3</p>
 
         {% for project in projects %}
-            <p>{{project.name}}</p>
+            <div class="project-container">
+                <p>{{project.name}}</p>
+                <time>{{project.date|date("m/d/Y")}}</time>
+                <div><img src="{{project.image}}" alt="{{project.name}}"></div>
+                <p>{{project.description}}</p>
+                <div><a href="{{project.link}}">Github</a></div>
             {% if app.user %}
                 <a href="{{ path("project_edit", {id: project.id}) }}">edit</a>
-        {% endif %}
+            {% endif %}
+            </div>
         {% endfor %}
 
         {% if app.user %}
-                <a href="{{ path("project_new") }}">Create</a>
+                <p><a href="{{ path("project_new") }}">Create</a></p>
         {% endif %}
     </section>
 
     <section class="section4">
         <p>Section 4</p>
         {% for skill in skills %}
-            <p>{{skill.name}}</p>
+            <div class="skill-container">
+                
+                <p>{{skill.name}}</p>
+                <div>
+                    <img src="{{skill.image}}" width="50px" alt="{{skill.name}}">
+                    <progress id="file" max="100" value="{{skill.level}}"> {{skill.level}} </progress> <span>{{skill.level}}%</span>
+                </div>
             {% if app.user %}
-                <a href="{{ path("skill_edit", {id: skill.id}) }}">edit</a>
-        {% endif %}
+                    <a href="{{ path("skill_edit", {id: skill.id}) }}">edit</a>
+            {% endif %}
+        </div>
         {% endfor %}
 
         {% if app.user %}
-                <a href="{{ path("skill_new") }}">Create</a>
+                <p><a href="{{ path("skill_new") }}">Create</a></p>
         {% endif %}
     </section>
 

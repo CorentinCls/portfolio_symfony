@@ -24,7 +24,7 @@ body {
 @mixin display-flex-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -34,6 +34,13 @@ body {
 
 @mixin style-list {
     list-style-type: none;
+}
+@mixin padding {
+    padding: 1rem;
+}
+
+header {
+    height: 100vh;
 }
 
 .nav-container {
@@ -51,14 +58,37 @@ body {
 
 .section1 {
     height: 80vh;
+    @include display-flex-column();
 }
 
 .section2, .section3, .section4 {
     height: 100vh;
+    @include display-flex-column();
+}
+
+.about-container {
+    @include display-flex-column();
+
+        p {
+            @include padding();
+        }
+}
+
+.project-container {
+    @include display-flex-column();
+}
+
+.skill-container {
+    @include display-flex-column();
+    display: block;
+
+    div {
+        @include display-flex-row();
+    }
 }
 
 .section5 {
-    height: 70vh;
+    height: 90vh;
 }
 
 .footer-container {
